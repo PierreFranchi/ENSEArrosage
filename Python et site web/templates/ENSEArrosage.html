@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+  Compte tenu du niveau débutant du développeur, ette page a été inspirée de :
+	Read Only by HTML5 UP	html5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Quant-au fichier CSS associé il a été directement repris tel quel-->
+<html>
+  <!--head-->
+  <head>
+    <!--Le head est est quelque sorte la carte d'identité de la page HTML
+    elle contient les informations necessaire aux navigateur pour son affichage : le nom qui apparaitra sur l'onglet, et les liens vers les fichier CSS qui gèrent l'estethique de la page-->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>ENSEArrosage</title><!--titre de la page qui apparait sur l'onglet du navigateur-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+  </head>
+  <body class="is-preload"><!--balise d'ouverture du corps principalde la page avec le nom du style correspondant sur le fichier CSS-->projeet
+    <!-- Header -->
+    <section id="header">
+      <header> <span class="image avatar"><img src="{{ url_for('static',filename='images/logo_ensea.png') }}" alt=""></span> <!--"images/logo_ensea.gif"-->
+        <h1 id="logo"><a href="#">ENSEArrosage</a></h1><!--titre d'importance h1 ; avec un lien pour accéder à la première section de la page : le descriptif du projet-->
+        <p>Gestionnaire de l'arrosage des murs végétalisés de la K-fet de
+          l'ENSEA</p><!--paragraphe-->
+      </header>
+      <nav id="nav">
+        <ul><!--balise de liste qui contiens les liens vesr les differentes parties da la page web-->
+          <li><a href="#historique" >historique d'arrosage</a></li><!--premier item de la liste avec un lien vers la deuxième section de la page : historique-->
+          <li><a href="#prévisions" >prévisions météo</a></li>
+          <li><a href="#gestion" >gestion à distance</a></li>
+        </ul>
+      </nav>
+      
+    </section>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <!-- première section -->
+        <section id="projet">
+          <div class="image main" data-position="center"> <img src="{{ url_for('static',filename='images/bannière.jpg') }}"  <!--affichage de l'image-->
+              alt=""
+              style="top: 0px; height: 400px;"><!--taille et position de l'image-->
+          </div>
+          <div class="container">
+            <header class="major"><!--header de la section-->
+              <h2>Projet ENSEArrosage</h2><!--titre d'importance h2-->
+              <h4>Qu'est-ce que c'est ?</h4><!--sous-titre d'importance h4-->
+            </header>
+            <p> Le projet ENSEArrosage est un système permettant de gérer
+              l'arrosage d'un espace vert à distance. </p><!--pararaphe de texte-->
+            <p> Ce projet est, à l'origine, destiné à gérer l'alimentation en
+              eau d'un mur végétalisé au sein de la cafétéria de l'<a href="https://ensea.fr/">ENSEA</a><!--lien vers le site de l'école qui aparait 'ENSEA'sur le site--> pandant la période estivale.
+            </p>
+          </div>
+        </section>
+        <!-- deuxième section -->
+        <section id="historique">
+          <div class="container">
+            <h3>historique des capteurs</h3><!--titre de la section-->
+            <p></p>
+              <img src="{{ url_for('static',filename='images/historiquecapteurs.png')}}" alt=""style="top: 0px; height: 900px;"><!--récupération de l'image générée par le programe python principale -->
+            </div>
+        </section>
+        <!-- troisième section -->
+        <section id="prévisions">
+          <div class="container">
+            <h3>prévisions météo</h3>
+            <p>Prochainement sur vos écrans :)</p><!---nous n'avons pas eu le temps d'en générer l'affichage àpartir du pogramme python nous en sommes désolés-->
+      
+          </div>
+        </section>
+        <!-- quatrième section -->
+        <section id="gestion">
+          <div class="container">
+            <h3>gestion à distance</h3>
+            <p>Vous pouvez choisir le mode d'arrosage : automatique ou manuel.
+            En mode manuel, veuillez rentrer une durée (en minutes) pour laquelle vous souhaitez arroser vos plantes.
+            </p>
+            <form method="POST" action="/valid"><!--balise ouvrante d'un formulaire avec la methode 'post' : l'envoie d'information à travers l'url vers le serveur ; et l'action (voir ci après)-->
+              <div class="col-4 col-12-medium">
+                <input type="radio" id="automatique" name="mode" value="automatique" checked><!--le bouton automatique est coché par defaut (checked)-->
+                <label for="automatique">mode automatique</label>
+                <input type="radio" id="manuel" name="mode" value="manuel">
+                <label for="manuel">mode manuel</label>
+                <!--2 boutons de type radio sont générés, on ne peut pas cocher les deux à la fois. en fonction du bouton coché, la variable name prends la valeur value du bouton coché-->
+              </div>
+              <div class="col-6 col-12-xsmall">
+                <input type="number" name="durée" id="durée" value="durée" placeholder="temps d'arrosage en min" />
+                <input type="submit" value="Valider" /><!--bouton de validation du formulaire (type) dont le nom apparent est "valider" qui execute l'action décrite dans la balise ouvrante du formulaire, soit la redirection vers la page /valid -->
+              </div>
+            </form>
+          </div>
+        </section><!--fin du corps de page-->
+      </div>
+      <!-- Footer -->
+      <section id="footer"><!--le bas de page-->
+        <div class="container">
+          <ul class="copyright"><!--liste avec les noms des étudiants ayant travaillé sur le projet-->
+            Réalisé par :
+            <li>P. F.</li>
+            <li>M. P.</li>
+            <li>G. R.</li>
+            <li>P. S.</li>
+          </ul>
+          <ul class="copyright"><!--afin de garder la même mise en page que précedament, nous avons créé une liste à un seul item-->
+            Supervisé par : 
+            <li>Monsieur N. P.</li>
+          </ul> <!--idem-->
+          <ul class="copyright">
+            © Ecole Nationale Supérieure de l'Electronique et de ses  Applications. Tous droits réservés.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body><!--fin de la partie visible du site-->
+</html><!--fin du fichier HTML-->

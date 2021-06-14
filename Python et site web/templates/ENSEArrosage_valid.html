@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--les commantaire ici seraient redondants par rapport à ceux du fichier HTML principal-->
+<html>
+  <!--head-->
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>ENSEArrosage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+  </head>
+  <body class="is-preload">
+    <!-- Header -->
+    <section id="header">
+      <header> <span class="image avatar"><img src="{{ url_for('static',filename='images/logo_ensea.png') }}" alt=""></span> <!--"images/logo_ensea.gif"-->
+        <h1 id="logo"><a href="#">ENSEArrosage</a></h1>
+        <p>Gestionnaire de l'arrosage des murs végétalisés de la K-fet de
+          l'ENSEA</p>
+      </header>
+      <nav id="nav">
+        <ul>
+          <li><a href="/" >revenir au site</a></li>
+        </ul>
+      </nav>
+      
+    </section>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <!-- première section -->
+        <section id="projet">
+          <div class="image main" data-position="center"> <img src="{{ url_for('static',filename='images/bannière.jpg') }}"  <!--"images/banni%C3%A8re.jpg"-->
+              alt=""
+              style="top: 0px; height: 400px;">
+          </div>
+          <div class="container">
+            <header class="major">
+              <h2>Validé !</h2>
+            </header>
+            <p>Vous pouvez partir serein en vacances !</p>
+            <!--
+            <p>Les plantes de la K-fet seront arrosées de manière automatique en fonction de la météo. Vous pouvez partir serein en vacances !</p>
+            <p>Les plantes seront arrosées pandant {'durée'} minutes. Demain, le régime automatique reprendra le relais si aucune autre instruction n'est donnée.</a>.
+            </p>
+          -->
+            <p></p>
+          </div>
+        </section>
+      </div>
+      <!-- Footer -->
+      <section id="footer">
+        <div class="container">
+          <ul class="copyright">
+            Réalisé par :
+            <li>P. F.</li>
+            <li>M. P.</li>
+            <li>G. R.</li>
+            <li>P. S.</li>
+          </ul>
+          <ul class="copyright">
+            Supervisé par : 
+            <li>Monsieur N. P.</li>
+          </ul>
+          <ul class="copyright">
+            © Ecole Nationale Supérieure de l'Electronique et de ses  Applications. Tous droits réservés.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
